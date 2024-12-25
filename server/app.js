@@ -18,28 +18,28 @@ app.get("/test", (req, res)=>{
     res.send("Test route is working");
 })
 
-app.use("/api/search/", globalSearchRouter)
-app.use("/api/search/songs", songsRouter)
+app.use("/api/search", globalSearchRouter)
+app.use("/api/songs", songsRouter)
 app.use("/api/search/albums", albumsRouter)
 app.use("/api/search/artists", artistsRouter)
 app.use("/api/search/playlists", playlistsRouter)
 
-app.get("/search-songs/:name", async (req, res)=>{
+// app.get("/search-songs/:name", async (req, res)=>{
 
-    const options = { method: 'GET', url: 'https://saavn.dev/api/search/songs' , params: { query: req.params.name },};
+//     const options = { method: 'GET', url: 'https://saavn.dev/api/search/songs' , params: { query: req.params.name },};
 
-    try{
-        const {data} = await axios.request(options);
-        console.log(data);
-        res.status(200).json(data)
-        // res.send(data);
-    }
-    catch(e){
-        console.log("error occured", e.message);
-        res.status(500).json({ error: 'Failed to fetch data from JioSaavn API' });
-    }
+//     try{
+//         const {data} = await axios.request(options);
+//         console.log(data);
+//         res.status(200).json(data)
+//         // res.send(data);
+//     }
+//     catch(e){
+//         console.log("error occured", e.message);
+//         res.status(500).json({ error: 'Failed to fetch data from JioSaavn API' });
+//     }
 
-})
+// })
 
 app.listen(port, ()=>{
     console.log("app is listening at port ", port)
