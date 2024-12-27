@@ -20,9 +20,9 @@ app.get("/test", (req, res)=>{
 
 app.use("/api/search", globalSearchRouter)
 app.use("/api/songs", songsRouter)
-app.use("/api/search/albums", albumsRouter)
-app.use("/api/search/artists", artistsRouter)
-app.use("/api/search/playlists", playlistsRouter)
+app.use("/api/albums", albumsRouter)
+app.use("/api/artists", artistsRouter)
+app.use("/api/playlists", playlistsRouter)
 
 // app.get("/search-songs/:name", async (req, res)=>{
 

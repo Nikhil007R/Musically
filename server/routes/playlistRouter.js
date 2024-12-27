@@ -1,10 +1,10 @@
 const express = require("express");
+const playlistById = require("../controllers/playlistController");
+
 const app = express();
 const Router = express.Router();
 
 
-Router.get("/", (req, res)=>{
-    res.send("playlist route is working")
-});
+Router.get("/:id", playlistById);
 
 module.exports = Router;
